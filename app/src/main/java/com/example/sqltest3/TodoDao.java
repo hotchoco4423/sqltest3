@@ -1,5 +1,6 @@
 package com.example.sqltest3;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -11,7 +12,7 @@ import java.util.List;
 @Dao
 public interface TodoDao {
     @Query("SELECT * FROM Todo")
-    List<Todo> getAll();
+    LiveData<List<Todo>> getAll();
 
     @Insert
     void insert(Todo todo);
@@ -21,4 +22,7 @@ public interface TodoDao {
 
     @Delete
     void delete(Todo todo);
+
+    @Query("DELETE FROM Todo")
+    void deleteAll();
 }

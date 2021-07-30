@@ -3,8 +3,8 @@ package com.example.sqltest3;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 
 import java.time.LocalDate;
@@ -32,6 +32,7 @@ public class Todo {
 
     public Todo() {}
 
+    @Ignore
     public Todo(String detectResult, String message_type, Date receiveDate, String sender, List<String> urlList, String messageBody) {
         this.detectResult = detectResult;
         this.message_type = message_type;
